@@ -1,0 +1,73 @@
+@use 'variaveis';
+@use 'hero';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2); //mesma coisa de cima, porém para outra parte do site
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2); //mesma coisa de cima, porém para outra parte do site
+    font-weight: 700;
+}
+
+*{  //Reset de estilos globais, o margin e padding remove preenchimentos padrão dos elementos, e o box-sizing garante que altura e largura incluam padding e border, sem afetar o tamanho do elemento
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body{ //Estilização do corpo da página, com cor de fundo e a fonte utilizada
+    background-color: variaveis.$corDeFundo;
+    font-family: Avenir, sans-serif; //a fonte principal Avenir, e o fallback, que significa uma opção alternativa caso a fonte principal não seja carregada
+}
+
+//Definição dos mixins
+@mixin text($fontSize: 16px){ //Nome do Mixin: text, parametro: $fontSize definido com 16px
+    font-size: $fontSize; //font-size, usada com o paramentro definido
+    line-height: $fontSize + 10px; //espaçamento entre as linhas do texto, que é o tamanho da fonte + 10px
+    color: variaveis.$corTextoPrincipal; //cor da fonte, definida nas variaveis
+}
+
+@mixin title($fontSize: 40px){ //Nome do mixin: title, parametro: $font-size definido com 40px
+    @include text ($fontSize); //inclusão do mixin: text com o parametro: $font-size
+    color: variaveis.$corTextoSecundario; //cor da fonte, definida nas variaveis
+}
+//
+
+//Definição das classes de texto - Usando a metodologia BEM
+.text--big{ //metodologia BEM: Variações do bloco text e o big é um modificador 
+    @include text(18px); //inclusão do mixin: text com parametro de 18px
+}
+.text {
+    @include text; //inclusão do mixin: text 
+}
+
+.text--small{
+    @include text(12px); //inclusão do mixin: text com parametro de 12px
+}
+//
+
+//Definição dos parametro de titulo
+.title--big{ //metodologia BEM: Variações do bloco title e o big é um modificador 
+    @include title(44px);
+}
+
+.title{
+    @include title; //inclusão do mixin: title
+}
+
+.title--small{
+    @include title(28px); //inclusão do mixin: title com parametro de 28px
+}
+//
+
+//Definição dos Links
+.link-text{ 
+    @include text (18px); //Inclusão do mixin: Text, com parametro de 18px
+    color: variaveis.$corTextoSecundario; //Definindo a cor da letra
+    text-decoration: underline; //Colocando a decoração de underline no texto
+}
+//
