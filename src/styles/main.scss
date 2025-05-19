@@ -1,5 +1,7 @@
 @use 'variaveis';
 @use 'hero';
+@use 'shows';
+@use 'plans';
 
 @font-face {
     font-family: Avenir;
@@ -17,11 +19,11 @@
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
+    font-family: Avenir, sans-serif;
 }
 
 body{ //Estilização do corpo da página, com cor de fundo e a fonte utilizada
     background-color: variaveis.$corDeFundo;
-    font-family: Avenir, sans-serif; //a fonte principal Avenir, e o fallback, que significa uma opção alternativa caso a fonte principal não seja carregada
 }
 
 //Definição dos mixins
@@ -71,3 +73,16 @@ body{ //Estilização do corpo da página, com cor de fundo e a fonte utilizada
     text-decoration: underline; //Colocando a decoração de underline no texto
 }
 //
+
+.button{
+    display: block; 
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    color: variaveis.$corTextoSecundario;
+    background-color: #6421ff;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    margin-top: 2vw;  
+}
