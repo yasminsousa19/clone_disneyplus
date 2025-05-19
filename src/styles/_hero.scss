@@ -45,3 +45,61 @@
         }
     }
 }
+@use 'variaveis';
+
+//o uso do "&" comercial 
+
+.hero{ //Seção Principal da pagina, geralmente com uma imagem chamativa e um botão de açao
+    padding: 5.6vw; //Adiciona um espaço interno de 5,6% da largura da tela
+    min-height: 80vh; //Define a altura minima de 80% da altura da tela
+    background-image: url(../images/hero_desktop.jpeg); //Seleciona a imagem de fundo
+    text-align: center; //Centraliza o texto dentro do hero
+    background-size: cover; //Faz a imagem cobrir toda area da hero, sem distorção
+
+    &__content{ //=.hero__content - Define o conteudo dentro da seção do hero
+        max-width: 640px; //Largura maxima para que ele não fique muito grande nas telas
+
+        &__branding{ //=.hero__content__branding - Define a área do logotipo
+            max-width: 320px; //largura maxima
+            margin: 0 auto 38px; //Centraliza a marca e deixa um espaço de 38px abaixo dela
+        }
+
+        .title--small{ //Define a margem do titulo pequeno
+            margin-bottom: 64px;
+        }
+
+        p{
+            margin-bottom: 20px;
+
+            &:last-child{ //Seleciona o ultimo paragrafo dentro do conteudo e aplica 60px de margin-top
+                margin-top: 60px;
+            }
+        }
+
+        &__combos{
+            display: flex;
+            justify-content: space-between;
+
+            &__combo {
+                width: calc(50% - 12px); //Aqui, cada combo ocupa 50% da largura da tela com espassamento de 12px
+
+                img{
+                    max-height: 60px;
+                }
+
+                button{
+                    display: block; 
+                    width: 100%;
+                    height: 60px;
+                    font-size: 18px;
+                    color: variaveis.$corTextoSecundario;
+                    background-color: #6421ff;
+                    text-transform: uppercase;
+                    border-radius: 4px;
+                    margin-bottom: 8px;
+                    margin-top: 2vw;  
+                }
+            }
+        }
+    }
+}
